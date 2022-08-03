@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Harshita, Adam, Emillio">
+  <title>Schedular - INAS</title>
+
+  <link href="./css/schedule.css" rel="stylesheet" type="text/css" />
+  <link href="./INAS.png" rel="icon" type="image/x-icon" />
+  <!-- Bluma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+  <!-- Nav bar -->
+  <nav class="navbar is-transparent" role="navigation" aria-label="main navigation" >
+    <div class="navbar-brand">
+      <a class="navbar-item" href="./index.html">
+        <img src="./INAS.png" width="50" height="50">
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+
+      <div class="navbar-end mr-4">
+        <a class="navbar-item" href="./index.html">
+          Home
+        </a>
+        <a class="navbar-item" href="./schedule.html">
+          Build Schedule
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!--Schedule edditor button -->
+  <div id="editBtn">
+    <button class="
+      js-modal-trigger 
+      button is-primary is-outlined
+      mt-5 mr-3" data-target="modal-builder">
+      <!--       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square"
+        viewBox="0 0 16 16">
+        <path
+          d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+        <path fill-rule="evenodd"
+          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> -->
+      Edit your schedule
+      </svg>
+    </button>
+  </div>
+  <!-- schedule builder -->
+  <div id="modal-builder" class="modal ">
+    <div class="modal-background"></div>
+
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Schedule Builder</p>
+      </header>
+      <section class="modal-card-body">
+        <!--Choose a Category for your event-->
+        <div class="field is-horizontal mt-3">
+          <div class="field-label is-normal">
+            <label class="label">Event Category</label>
+          </div>
+          <div class="field-body">
+            <div class="field ">
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <select name="cats" id=cats required>
+                    <option value="none" selected disabled hidden>Event Category</option>
+                    <option value="class">Class</option>
+                    <option value="study">Studying/Homework</option>
+                    <option value="work">Work</option>
+                    <option value="meeting">Meeting</option>
+                    <option value="break">Break</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <!-- Name of the Event -->
+        <div class="field is-horizontal  ">
+          <div class="field-label is-normal">
+            <label class="label">Event Name</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="input is-danger" type="text" placeholder="Enter Your Event Name. ex: Math Class" required>
+              </div>
+              <p class="help is-danger">
+                This field is required
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <!--Event Description-->
+        <div class="field is-horizontal  ">
+          <div class="field-label is-normal">
+            <label class="label">Event Description</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea" placeholder="A short decription of your event (optional)"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <!--Event start time-->
+        <div style="display: flex; justify-content: space-around;">
+          <div style="display:flex;">
+            <label class="name label mr-2">Start Time</label>
+
+            <input style="margin-left: 0; margin-bottom: 2em;" type="time" id="stTime" name="stTime" min="09:00"
+              max="18:00" required>
+          </div>
+          <!--Event end time-->
+          <div style="display:flex;">
+            <label class="label mr-2" for="edTime">End Time</label>
+
+            <input type="time" id="edTime" name="edTime" min="09:00" max="18:00" style="margin-bottom: 2em;" required>
+          </div>
+        </div>
+
+
+        <!-- Day Selector -->
+        <div id="days" class="mb-3">
+          <label class="label mt-2">Days of the Event</label>
+          <a class="dayBtn button is-primary is-outlined is-rounded is-active">Su</a>
+          <a class="dayBtn button is-primary is-outlined is-rounded ">M</a>
+          <a class="dayBtn button is-primary is-outlined is-rounded ">Tu</a>
+          <a class="dayBtn button is-primary is-outlined is-rounded ">W</a>
+          <a class="dayBtn button is-primary is-outlined is-rounded ">Th</a>
+          <a class="dayBtn button is-primary is-outlined is-rounded ">F</a>
+          <a class="dayBtn button is-primary is-outlined is-rounded ">Sa</a>
+        </div>
+      </section>
+
+      <footer class="modal-card-foot has-text-centered">
+        <button class="button is-primary" id="save">Save changes</button>
+        <button class="button">Add another event</button>
+      </footer>
+    </div>
+
+  </div>
+  <div id="schedule" class="p-2">
+
+    <div class="block">
+      <p class="my-6"></p>
+    </div>
+
+    <div style="padding: 0px;" class="columns is-mobile is-multiline">
+      <p class="ml-5"></p>
+
+
+
+      <div style="padding: 0px;" class="column has-text-right is-gapless is-narrow">
+        <p class="pr-2 ">Time of Day</p>
+        
+        <p class="pb-1"></p>
+        <p class="mb-6"></p>
+        <div>1 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>2 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>3 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>4 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>5 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>6 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>7 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>8 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>9 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>10 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>11 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>12 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>1 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>2 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>3 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>4 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>5 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>6 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>7 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>8 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>9 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>10 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>11 p.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+        <div>12 a.m.</div>
+        <p class="mb-6"></p>
+        <p class="pb-2"></p>
+      </div>
+      <p class="pr-2"></p>
+      <div style="padding: 0px; margin: 0px;" class="column is-multiline has-text-centered">
+        Monday
+        <p class="pb-2"></p>
+        <p class="mb-5"></p>
+        <!-- Monday time boxes -->
+        <div id="monday-1" class="myBox">
+          m1a 
+        </div>
+        <p class="pb-2"></p>
+        <div id="monday-2" class="myBox">
+          m2a
+        </div>
+        <p class="pb-2"></p>
+        <div id="monday-3" class="myBox">
+          m3a
+        </div>
+        <p class="pb-2"></p>
+        <div id="monday-4" class="myBox">
+          m4a
+        </div>
+        <p class="pb-2"></p>
+        <div id="monday-5" class="myBox">
+          m5a
+        </div>
+        <p class="pb-2"></p>
+        <div id="monday-6" class="myBox">
+          m6a
+        </div>
+        <p class="pb-2"></p>
+        <div id="monday-7" class="myBox">
+          m7a
+        </div>
+        <p class="pb-2"></p>
+        <div id="monday-8" class="myBox">
+          m8a
+        </div>
+        <p class="pb-2"></p>
+        <div id="monday-9" class="myBox">
+          m9a
+        </div>
+        <p class="pb-2"></p>
+        <div id="m10a" class="myBox">
+          m10a
+        </div>
+        <p class="pb-2"></p>
+        <div id="m11a" class="myBox">
+          m11a
+        </div>
+        <p class="pb-2"></p>
+        <div id="m12a" class="myBox">
+          m12p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m1p" class="myBox">
+          m1p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m2p" class="myBox">
+          m2p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m3p" class="myBox">
+          m3p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m4p" class="myBox">
+          m4p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m5p" class="myBox">
+          m5p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m6p" class="myBox">
+          m6p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m7p" class="myBox">
+          m7p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m8p" class="myBox">
+          m8p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m9p" class="myBox">
+          m9p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m10p" class="myBox">
+          m10p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m11p" class="myBox">
+          m11p
+        </div>
+        <p class="pb-2"></p>
+        <div id="m12a" class="myBox">
+          m12a
+        </div>
+        <p class="pb-2"></p>
+      </div>
+      <p class="pr-2"></p>
+
+
+      <div style="padding: 0px;" class="column has-text-centered">
+        Tuesday
+        <p class="pb-2"></p>
+        <p class="mb-5"></p>
+        <!-- Tuesday time boxes -->
+        <div id="tu1a" class="myBox">
+          tu1a
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu2a" class="myBox">
+          tu2a
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu3a" class="myBox">
+          tu3a
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu4a" class="myBox">
+          tu4a
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu5a" class="myBox">
+          tu5a
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu6a" class="myBox">
+          tu6a
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu7a" class="myBox">
+          tu7a
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu8a" class="myBox">
+          tu8a
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu9a" class="myBox">
+          tu9a
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu10a" class="myBox">
+          tu10a
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu11a" class="myBox">
+          tu11a
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu12p" class="myBox">
+          tu12p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu1p" class="myBox">
+          tu1p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu2p" class="myBox">
+          tu2p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu3p" class="myBox">
+          tu3p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu4p" class="myBox">
+          tu4p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu5p" class="myBox">
+          tu5p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu6p" class="myBox">
+          tu6p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu7p" class="myBox">
+          tu7p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu8p" class="myBox">
+          tu8p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu9p" class="myBox">
+          tu9p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu10p" class="myBox">
+          tu10p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu11p" class="myBox">
+          tu11p
+        </div>
+        <p class="pb-2"></p>
+        <div id="tu12a" class="myBox">
+          tu12a
+        </div>
+        <p class="pb-2"></p>
+      </div>
+      <p class="pr-2"></p>
+
+
+      <div style="padding: 0px;" class="column has-text-centered">
+        Wednesday
+        <p class="pb-2"></p>
+        <p class="mb-5"></p>
+        <!-- Wednesday time boxes -->
+        <div id="w1a" class="myBox">
+          w1a
+        </div>
+        <p class="pb-2"></p>
+        <div id="w2a" class="myBox">
+          w2a
+        </div>
+        <p class="pb-2"></p>
+        <div id="w3a" class="myBox">
+          w3a
+        </div>
+        <p class="pb-2"></p>
+        <div id="w4a" class="myBox">
+          w4a
+        </div>
+        <p class="pb-2"></p>
+        <div id="w5a" class="myBox">
+          w5a
+        </div>
+        <p class="pb-2"></p>
+        <div id="w6a" class="myBox">
+          w6a
+        </div>
+        <p class="pb-2"></p>
+        <div id="w7a" class="myBox">
+          w7a
+        </div>
+        <p class="pb-2"></p>
+        <div id="w8a" class="myBox">
+          w8a
+        </div>
+        <p class="pb-2"></p>
+        <div id="w9a" class="myBox">
+          w9a
+        </div>
+        <p class="pb-2"></p>
+        <div id="w10a" class="myBox">
+          w10a
+        </div>
+        <p class="pb-2"></p>
+        <div id="w11a" class="myBox">
+          w11a
+        </div>
+        <p class="pb-2"></p>
+        <div id="w12p" class="myBox">
+          w12p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w1p" class="myBox">
+          w1p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w2p" class="myBox">
+          w2p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w3p" class="myBox">
+          w3p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w4p" class="myBox">
+          w4p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w5p" class="myBox">
+          w5p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w6p" class="myBox">
+          w6p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w7p" class="myBox">
+          w7p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w8p" class="myBox">
+          w8p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w9p" class="myBox">
+          w9p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w10p" class="myBox">
+          w10p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w11p" class="myBox">
+          w11p
+        </div>
+        <p class="pb-2"></p>
+        <div id="w12a" class="myBox">
+          w12a
+        </div>
+        <p class="pb-2"></p>
+      </div>
+      <p class="pr-2"></p>
+
+
+      <div style="padding: 0px;" class="column has-text-centered">
+        Thursday
+        <p class="pb-2"></p>
+        <p class="mb-5"></p>
+        <!-- Thursday time boxes -->
+        <div id="th1a" class="myBox">
+          th1a
+        </div>
+        <p class="pb-2"></p>
+        <div id="th2a" class="myBox">
+          th2a
+        </div>
+        <p class="pb-2"></p>
+        <div id="th3a" class="myBox">
+          th3a
+        </div>
+        <p class="pb-2"></p>
+        <div id="th4a" class="myBox">
+          th4a
+        </div>
+        <p class="pb-2"></p>
+        <div id="th5a" class="myBox">
+          th5a
+        </div>
+        <p class="pb-2"></p>
+        <div id="th6a" class="myBox">
+          th6a
+        </div>
+        <p class="pb-2"></p>
+        <div id="th7a" class="myBox">
+          th7a
+        </div>
+        <p class="pb-2"></p>
+        <div id="th8a" class="myBox">
+          th8a
+        </div>
+        <p class="pb-2"></p>
+        <div id="th9a" class="myBox">
+          th9a
+        </div>
+        <p class="pb-2"></p>
+        <div id="th10a" class="myBox">
+          th10a
+        </div>
+        <p class="pb-2"></p>
+        <div id="th11a" class="myBox">
+          th11a
+        </div>
+        <p class="pb-2"></p>
+        <div id="th12p" class="myBox">
+          th12p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th1p" class="myBox">
+          th1p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th2p" class="myBox">
+          th2p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th3p" class="myBox">
+          th3p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th4p" class="myBox">
+          th4p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th5p" class="myBox">
+          th5p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th6p" class="myBox">
+          th6p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th7p" class="myBox">
+          th7p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th8p" class="myBox">
+          th8p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th9p" class="myBox">
+          th9p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th10p" class="myBox">
+          th10p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th11p" class="myBox">
+          th11p
+        </div>
+        <p class="pb-2"></p>
+        <div id="th12a" class="myBox">
+          th12a
+        </div>
+        <p class="pb-2"></p>
+      </div>
+      <p class="pr-2"></p>
+
+
+      <div style="padding: 0px;" class="column has-text-centered">
+        Friday
+        <p class="pb-2"></p>
+        <p class="mb-5"></p>
+        <!-- Friday time boxes -->
+        <div id="f1a" class="myBox">
+          f1a
+        </div>
+        <p class="pb-2"></p>
+        <div id="f2a" class="myBox">
+          f2a
+        </div>
+        <p class="pb-2"></p>
+        <div id="f3a" class="myBox">
+          f3a
+        </div>
+        <p class="pb-2"></p>
+        <div id="f4a" class="myBox">
+          f4a
+        </div>
+        <p class="pb-2"></p>
+        <div id="f5a" class="myBox">
+          f5a
+        </div>
+        <p class="pb-2"></p>
+        <div id="f6a" class="myBox">
+          f6a
+        </div>
+        <p class="pb-2"></p>
+        <div id="f7a" class="myBox">
+          f7a
+        </div>
+        <p class="pb-2"></p>
+        <div id="f8a" class="myBox">
+          f8a
+        </div>
+        <p class="pb-2"></p>
+        <div id="f9a" class="myBox">
+          f9a
+        </div>
+        <p class="pb-2"></p>
+        <div id="f10a" class="myBox">
+          f10a
+        </div>
+        <p class="pb-2"></p>
+        <div id="f11a" class="myBox">
+          f11a
+        </div>
+        <p class="pb-2"></p>
+        <div id="f12p" class="myBox">
+          f12p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f1p" class="myBox">
+          f1p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f2p" class="myBox">
+          f2p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f3p" class="myBox">
+          f3p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f4p" class="myBox">
+          f4p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f5p" class="myBox">
+          f5p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f6p" class="myBox">
+          f6p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f7p" class="myBox">
+          f7p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f8p" class="myBox">
+          f8p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f9p" class="myBox">
+          f9p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f10p" class="myBox">
+          f10p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f11p" class="myBox">
+          f11p
+        </div>
+        <p class="pb-2"></p>
+        <div id="f12a" class="myBox">
+          f12a
+        </div>
+        <p class="pb-2"></p>
+      </div>
+      <p class="pr-2"></p>
+
+
+      <div style="padding: 0px;" class="column has-text-centered">
+        Saturday
+        <p class="pb-2"></p>
+        <p class="mb-5"></p>
+        <!-- Saturday time boxes -->
+        <div id="sa1a" class="myBox">
+          sa1a
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa2a" class="myBox">
+          sa2a
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa3a" class="myBox">
+          sa3a
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa4a" class="myBox">
+          sa4a
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa5a" class="myBox">
+          sa5a
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa6a" class="myBox">
+          sa6a
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa7a" class="myBox">
+          sa7a
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa8a" class="myBox">
+          sa8a
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa9a" class="myBox">
+          sa9a
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa10a" class="myBox">
+          sa10a
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa11a" class="myBox">
+          sa11a
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa12p" class="myBox">
+          sa12p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa1p" class="myBox">
+          sa1p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa2p" class="myBox">
+          sa2p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa3p" class="myBox">
+          sa3p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa4p" class="myBox">
+          sa4p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa5p" class="myBox">
+          sa5p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa6p" class="myBox">
+          sa6p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa7p" class="myBox">
+          sa7p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa8p" class="myBox">
+          sa8p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa9p" class="myBox">
+          sa9p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa10p" class="myBox">
+          sa10p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa11p" class="myBox">
+          sa11p
+        </div>
+        <p class="pb-2"></p>
+        <div id="sa12a" class="myBox">
+          sa12a
+        </div>
+        <p class="pb-2"></p>
+      </div>
+      <p class="pr-2"></p>
+
+
+      <div style="padding: 0px;" class="column has-text-centered">
+        Sunday
+        <p class="pb-2"></p>
+        <p class="mb-5"></p>
+        <!-- Sunday time boxes -->
+        <div id="su1a" class="myBox">
+          su1a
+        </div>
+        <p class="pb-2"></p>
+        <div id="su2a" class="myBox">
+          su2a
+        </div>
+        <p class="pb-2"></p>
+        <div id="su3a" class="myBox">
+          su3a
+        </div>
+        <p class="pb-2"></p>
+        <div id="su4a" class="myBox">
+          su4a
+        </div>
+        <p class="pb-2"></p>
+        <div id="su5a" class="myBox">
+          su5a
+        </div>
+        <p class="pb-2"></p>
+        <div id="su6a" class="myBox">
+          su6a
+        </div>
+        <p class="pb-2"></p>
+        <div id="su7a" class="myBox">
+          su7a
+        </div>
+        <p class="pb-2"></p>
+        <div id="su8a" class="myBox">
+          su8a
+        </div>
+        <p class="pb-2"></p>
+        <div id="su9a" class="myBox">
+          su9a
+        </div>
+        <p class="pb-2"></p>
+        <div id="su10a" class="myBox">
+          su10a
+        </div>
+        <p class="pb-2"></p>
+        <div id="su11a" class="myBox">
+          su11a
+        </div>
+        <p class="pb-2"></p>
+        <div id="su12p" class="myBox">
+          su12p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su1p" class="myBox">
+          su1p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su2p" class="myBox">
+          su2p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su3p" class="myBox">
+          su3p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su4p" class="myBox">
+          su4p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su5p" class="myBox">
+          su5p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su6p" class="myBox">
+          su6p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su7p" class="myBox">
+          su7p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su8p" class="myBox">
+          su8p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su9p" class="myBox">
+          su9p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su10p" class="myBox">
+          su10p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su11p" class="myBox">
+          su11p
+        </div>
+        <p class="pb-2"></p>
+        <div id="su12a" class="myBox">
+          su12a
+        </div>
+        <p class="pb-2"></p>
+      </div>
+      <p class="mr-5"></p>
+    </div>
+  </div>
+
+  <!--  <div style = "background: #00ffcc;" class="myBox">
+    this is a box
+  </div> 
+   
+  <div style = "position:absolute; left:210px; top:663px; background: #00ffcc;">
+    position = left:210px; top:663px;
+  </div>
+  <div style = "position:absolute; left:355px; top:735px; background: #00ffcc;">
+    position = left:355px; top:735px;
+  </div>-->
+  <script src="sch.js"></script>
+  <script src="modal.js"></script>
+</body>
+
+</html>
+<div id="builder" class="is-align-content-center">
+
+
+
+</div>

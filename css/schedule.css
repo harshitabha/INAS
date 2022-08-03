@@ -1,0 +1,69 @@
+.hidden{
+  display: hidden;
+}
+
+#builder {
+  display: flex;
+  flex-direction: column;
+/*   align-items: center; */
+}
+
+#days {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#editBtn{
+  display: flex;
+  justify-content: flex-end;
+/*   float: right; */
+}
+.class { background-color: #DF0101;}
+.study {background-color: #0EBA01;}
+.work {background-color: #019BBA;}
+.meeting {background-color: #EECE01;}
+.break {background-color: #880DFB;}
+.other {background-color: #FB7312;}
+
+
+
+
+/*v adams css v*/
+.positioned {
+  top: 30px;
+  left: 30px;
+  position: relative;
+  background: #00d1b2;
+}
+
+
+
+/* Box styles */
+.myBox {
+border: none;
+padding: 0px;
+font: 20px/20px sans-serif;
+height: 72px;
+overflow: auto;
+text-align: left;
+}
+
+::-webkit-scrollbar {
+width: 12px;
+height: 12px;
+}
+
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 10px white;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 10px;
+background: #00ffd9; 
+box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #00d1b2;
+}
