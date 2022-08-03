@@ -7,6 +7,15 @@
   flex-direction: column;
 /*   align-items: center; */
 }
+.time {
+  margin-bottom: 3rem;
+  padding-top:0.5rem;
+  margin-right: 0.8rem;
+  padding-right: 0.5rem;
+  
+  
+  text-align: center;
+}
 
 #days {
   display: flex;
@@ -67,3 +76,12 @@ box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 ::-webkit-scrollbar-thumb:hover {
 background: #00d1b2;
 }
+
+.vertical {
+  border-left: 2px solid black;
+   height: 1912px;
+   position:absolute;
+   right: 1808px;
+   top: 213px;
+   
+        }
