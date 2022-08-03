@@ -15,7 +15,7 @@
 
 <body>
   <!-- Nav bar -->
-  <nav class="navbar is-transparent" role="navigation" aria-label="main navigation" >
+  <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="./index.html">
         <img src="./INAS.png" width="50" height="50">
@@ -69,7 +69,7 @@
               <div class="control">
                 <div class="select is-fullwidth">
                   <select name="cats" id=cats required>
-                    <option value="none" selected disabled hidden>Event Category</option>
+                    <option value="default" selected disabled hidden>Event Category</option>
                     <option value="class">Class</option>
                     <option value="study">Studying/Homework</option>
                     <option value="work">Work</option>
@@ -93,11 +93,9 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input class="input is-danger" type="text" placeholder="Enter Your Event Name. ex: Math Class" required>
+                <input id="eName" class="input" type="text" placeholder="Enter Your Event Name. ex: Math Class"
+                  required>
               </div>
-              <p class="help is-danger">
-                This field is required
-              </p>
             </div>
           </div>
         </div>
@@ -111,7 +109,8 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <textarea class="textarea" placeholder="A short decription of your event (optional)"></textarea>
+                <textarea id="eDesc" class="textarea"
+                  placeholder="A short decription of your event (optional)"></textarea>
               </div>
             </div>
           </div>
@@ -124,14 +123,16 @@
           <div style="display:flex;">
             <label class="name label mr-2">Start Time</label>
 
-            <input style="margin-left: 0; margin-bottom: 2em;" type="time" id="stTime" name="stTime" min="09:00"
-              max="18:00" required>
+            <input class="input" style="margin-left: 0; margin-bottom: 2em;" type="time" id="stTime" name="stTime"
+              min="09:00" max="18:00" required>
+
           </div>
           <!--Event end time-->
           <div style="display:flex;">
             <label class="label mr-2" for="edTime">End Time</label>
 
-            <input type="time" id="edTime" name="edTime" min="09:00" max="18:00" style="margin-bottom: 2em;" required>
+            <input class="input" type="time" id="edTime" name="edTime" min="09:00" max="18:00"
+              style="margin-bottom: 2em;" required>
           </div>
         </div>
 
@@ -139,13 +140,13 @@
         <!-- Day Selector -->
         <div id="days" class="mb-3">
           <label class="label mt-2">Days of the Event</label>
-          <a class="dayBtn button is-primary is-outlined is-rounded is-active">Su</a>
-          <a class="dayBtn button is-primary is-outlined is-rounded ">M</a>
-          <a class="dayBtn button is-primary is-outlined is-rounded ">Tu</a>
-          <a class="dayBtn button is-primary is-outlined is-rounded ">W</a>
-          <a class="dayBtn button is-primary is-outlined is-rounded ">Th</a>
-          <a class="dayBtn button is-primary is-outlined is-rounded ">F</a>
-          <a class="dayBtn button is-primary is-outlined is-rounded ">Sa</a>
+          <a id="sunday" class="dayBtn button is-primary is-outlined is-rounded is-active">Su</a>
+          <a id="monday" class="dayBtn button is-primary is-outlined is-rounded ">M</a>
+          <a id="tuesday" class="dayBtn button is-primary is-outlined is-rounded ">Tu</a>
+          <a id="wednesday" class="dayBtn button is-primary is-outlined is-rounded ">W</a>
+          <a id="thursday" class="dayBtn button is-primary is-outlined is-rounded ">Th</a>
+          <a id="friday" class="dayBtn button is-primary is-outlined is-rounded ">F</a>
+          <a id="saturday" class="dayBtn button is-primary is-outlined is-rounded ">Sa</a>
         </div>
       </section>
 
@@ -169,7 +170,7 @@
 
       <div style="padding: 0px;" class="column has-text-right is-gapless is-narrow">
         <p class="pr-2 mb-6">Time of Day</p>
-        
+
         <div class="time">1 a.m.</div>
         <div class="time">2 a.m.</div>
         <div class="time">3 a.m.</div>
@@ -196,106 +197,210 @@
         <div class='time'>12 a.m.</div>
       </div>
       <p class="pr-2"></p>
-        <div class = "vertical"></div>
+      <div class="vertical"></div>
+
+      <div style="padding: 0px;" class="column has-text-centered">
+        Sunday
+        <p class="pb-2"></p>
+        <p class="mb-5"></p>
+        <!-- Saturday time boxes -->
+        <div id="sunday-1" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-2" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-3" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-4" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-5" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-6" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-7" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-8" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-9" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-10" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-11" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-12" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-13" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-14" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-15" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-16" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-17" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-18" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-19" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-20" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-21" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-22" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-23" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+        <div id="sunday-0" class="myBox">
+
+        </div>
+        <p class="pb-2"></p>
+      </div>
+
       <div style="padding: 0px; margin: 0px;" class="column is-multiline has-text-centered">
         Monday
         <p class="pb-2"></p>
         <p class="mb-5"></p>
         <!-- Monday time boxes -->
         <div id="monday-1" class="myBox">
-           
+          <span id="eName"></span>
         </div>
         <p class="pb-2"></p>
         <div id="monday-2" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-3" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-4" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-5" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-6" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-7" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-8" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-9" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-10" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-11" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-12" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-13" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-14" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-15" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-16" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-17" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-18" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-19" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-20" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-21" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-22" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="monday-23" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
-        <div id="monday-24" class="myBox">
-          
+        <div id="monday-0" class="myBox">
+
         </div>
         <p class="pb-2"></p>
       </div>
@@ -308,99 +413,99 @@
         <p class="mb-5"></p>
         <!-- Tuesday time boxes -->
         <div id="tuesday-1" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-2" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-3" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-4" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-5" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-6" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-7" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-8" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-9" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-10" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-11" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-12" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-13" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-14" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-15" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-16" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-17" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-18" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-19" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-20" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-21" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-22" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="tuesday-23" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
-        <div id="tuesday-24" class="myBox">
-          
+        <div id="tuesday-0" class="myBox">
+
         </div>
         <p class="pb-2"></p>
       </div>
@@ -413,99 +518,99 @@
         <p class="mb-5"></p>
         <!-- Wednesday time boxes -->
         <div id="wednesday-1" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-2" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-3" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-4" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-5" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-6" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-7" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-8" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-9" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-10" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-11" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-12" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-13" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-14" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-15" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-16" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-17" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-18" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-19" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-20" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-21" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-22" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="wednesday-23" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
-        <div id="wednesday-24" class="myBox">
-          
+        <div id="wednesday-0" class="myBox">
+
         </div>
         <p class="pb-2"></p>
       </div>
@@ -519,313 +624,210 @@
         <p class="mb-5"></p>
         <!-- Thursday time boxes -->
         <div id="thursday-1" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-2" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-3" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-4" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-5" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-6" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-7" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-8" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-9" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-10" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-11" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-12" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-13" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-14" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-15" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-16" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-17" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-18" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-19" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-20" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-21" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-22" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="thursday-23" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
-        <div id="thursday-24" class="myBox">
-          
+        <div id="thursday-0" class="myBox">
+
         </div>
         <p class="pb-2"></p>
       </div>
       <p class="pr-2"></p>
 
 
-      
+
       <div style="padding: 0px;" class="column has-text-centered">
         Friday
         <p class="pb-2"></p>
         <p class="mb-5"></p>
         <!-- Friday time boxes -->
         <div id="friday-1" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-2" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-3" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-4" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-5" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-6" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-7" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-8" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-9" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-10" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-11" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-12" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-13" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-14" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-15" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-16" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-17" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-18" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-19" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-20" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-21" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-22" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="friday-23" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
-        <div id="friday-24" class="myBox">
-          
+        <div id="friday-0" class="myBox">
+
         </div>
         <p class="pb-2"></p>
       </div>
       <p class="pr-2"></p>
 
-
-      <div style="padding: 0px;" class="column has-text-centered">
-        Saturday
-        <p class="pb-2"></p>
-        <p class="mb-5"></p>
-        <!-- Saturday time boxes -->
-        <div id="sunday-1" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-2" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-3" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-4" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-5" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-6" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-7" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-8" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-9" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-10" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-11" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-12" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-13" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-14" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-15" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-16" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-17" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-18" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-19" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-20" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-21" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-22" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-23" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-        <div id="sunday-24" class="myBox">
-          
-        </div>
-        <p class="pb-2"></p>
-      </div>
       <p class="pr-2"></p>
 
 
@@ -835,99 +837,99 @@
         <p class="mb-5"></p>
         <!-- Saturday time boxes -->
         <div id="saturday-1" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-2" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-3" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-4" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-5" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-6" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-7" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-8" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-9" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-10" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-11" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-12" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-13" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-14" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-15" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-16" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-17" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-18" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-19" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-20" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-21" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-22" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
         <div id="saturday-23" class="myBox">
-          
+
         </div>
         <p class="pb-2"></p>
-        <div id="saturday-24" class="myBox">
-          
+        <div id="saturday-0" class="myBox">
+
         </div>
         <p class="pb-2"></p>
       </div>

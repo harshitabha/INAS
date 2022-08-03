@@ -79,9 +79,8 @@ background: #00d1b2;
 
 .vertical {
   border-left: 2px solid black;
-   height: 1912px;
-   position:absolute;
-   right: 1808px;
-   top: 213px;
-   
-        }
+  height: 1912px;
+  position:absolute;
+  right: 1808px;
+  top: 213px;   
+}

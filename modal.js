@@ -26,21 +26,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Add a click event on various child elements to close the parent modal
+  // Add a click event on various child elements to close the parent modal if all vals are filled out
+  const eCat = document.querySelector("#cats");
+  const eName = document.querySelector("#eName");
+  const stTime = document.querySelector("#stTime");
+  const edTime = document.querySelector("#edTime");
+  const days = document.querySelectorAll(".dayBtn");
+  let clickDays = {
+    sunday: false,
+    monday: false,
+    tuesday: false,
+    wednesday: false,
+    thursday: false,
+    friday: false,
+    saturday: false,
+  };
+  // update the selected days
+  days.forEach(btn => {
+    btn.addEventListener("click", c => {
+      clickDays[btn.id] = !clickDays[btn.id];
+    });
+  });
+
   (document.querySelectorAll('#save') || []).forEach(($close) => {
     const $target = $close.closest('.modal');
 
     $close.addEventListener('click', () => {
-      closeModal($target);
+      //if a val has been selected for the required 
+      if (eCat !== "default" && eName !== "" && stTime !== "" && edTime !== "" && Object.values(clickDays).includes(true)) {
+        console.log("entered");
+        closeModal($target);
+      }
+      else { alert("Please fill out all required values"); }
     });
   });
 
-  // Add a keyboard event to close all modals
-  document.addEventListener('keydown', (event) => {
-    const e = event || window.event;
-
-    if (e.keyCode === 27) { // Escape key
-      closeAllModals();
-    }
-  });
 });

@@ -1,15 +1,32 @@
 const catsDrop = document.querySelector("#cats");
 const dayBtns = document.querySelectorAll(".dayBtn");
 const save = document.querySelector("#save");
+
+const endTime = document.querySelector("#edTime");
 const stTime = document.querySelector("#stTime");
+const eventName = document.querySelector("#eName");
+const eventDescription = document.querySelector("#eDesc");
+const eCat = document.querySelector("#cats")
+const days = document.querySelector("#dayBtn");
+let daysObj = {
+  monday: false,
+  tuesday: false,
+  wednesday: false,
+  thursday: false,
+  friday: false,
+  saturday: false,
+  sunday: false,
+};
 
 catsDrop.addEventListener("change", e => console.log(catsDrop.value));
 
+// changing the day button look on click
 dayBtns.forEach((btn) => {
   btn.addEventListener("click", c => {
     btn.classList.toggle("is-outlined");
     btn.classList.remove("is-light");
     btn.classList.toggle("is-active");
+    daysObj[btn.id] = !daysObj[btn.id];
     // console.log(btn);
   });
   btn.addEventListener("mouseover", h => {
@@ -21,7 +38,19 @@ dayBtns.forEach((btn) => {
   });
 });
 
-// when the save btn is clicked
+
+
 save.addEventListener("click", c => {
-  console.log(stTime.value);
+  // if any of the days have been selected for the event
+  Object.keys(daysObj).forEach(day => {
+    if (daysObj[day] == true) {
+      let start = stTime.value.split(":") // hr of st time
+      let end = endTime.value.split(":") // hr of end time
+      for (var t = start[0]; t <= end[0]; t++) {
+        // console.log(`#${day}-${t}`);
+        document.querySelector(`#${day}-${t}`).classList.add(eCat.value);
+        
+      }
+    }
+  });
 });
