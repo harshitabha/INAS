@@ -46,12 +46,13 @@ save.addEventListener("click", c => {
     if (daysObj[day] == true) {
       console.log("in")
       let start = stTime.value.split(":") // hr of st time
-      if(start[0][0] == 0) start[0] = start[0].splice(1);
+      if(start[0][0] == 0) start[0] = start[0].slice(1); // removing the extra 0 b4 the hr
       let end = endTime.value.split(":") // hr of end time
+      if(end[0][0] == 0) end[0] = end[0].slice(1); // removing the extra 0 b4 the hr
       for (var t = start[0]; t <= end[0]; t++) {
-        console.log(`${t}`);
-        console.log(`#${day}-${t}`);
-        // document.querySelector(`#${day}-${t}`).classList.add(eCat.value);
+        // console.log(`${t}`);
+        // console.log(`#${day}-${t}`);
+        document.querySelector(`#${day}-${t}`).classList.add(eCat.value); // changing the color on the schedule to rep the event
         
       }
     }
