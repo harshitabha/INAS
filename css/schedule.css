@@ -1,5 +1,21 @@
-.hidden{
-  display: hidden;
+@use postcss-custom-media;
+@use postcss-nested;
+
+
+
+.Legend-colorBox {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+}
+
+.box {
+  float: left;
+  height: 1rem;
+  width: 1rem;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  clear: both;
 }
 
 #builder {
@@ -9,8 +25,8 @@
 }
 .time {
   /* margin-bottom: 3rem; */
-  padding-top: 1.5rem;
-  padding-bottom:1.5rem;
+  padding-top: 1.45rem;
+  padding-bottom:1.45rem;
   margin-right: 0.8rem;
   padding-right: 0.5rem;
   
@@ -20,6 +36,7 @@
   
   text-align: center;
 }
+
 .stBox{
   /* need to have someone check why the cornner is being cut off*/
   border-radius: 10% 10% 0 0; 
@@ -29,9 +46,12 @@
 .dayHead {
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
+
+  
   
   border-width: 2px;
 }
+
 
 #days {
   display: flex;

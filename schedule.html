@@ -34,18 +34,90 @@
       </div>
     </div>
   </nav>
+<!-- LEGEND -->
+  <p class="mt-3"></p>
+  <ul class="Legend">
+  <li class="Legend-item">
+    <span class="Legend-colorBox ml-5" style="background-color: #DF0101;">
+    </span>
+    <span class="Legend-label">
+      : Class
+    </span>
+    <span class="Legend-colorBox ml-5" style="background-color: #0EBA01;">
+    </span>
+    <span class="Legend-label">
+      : Study
+    </span>
+    <span class="Legend-colorBox ml-5" style="background-color: #019BBA;">
+    </span>
+    <span class="Legend-label">
+      : Work
+    </span>
+  </li>
+  <li class="Legend-item">
+    <span class="Legend-colorBox ml-5" style="background-color: #EECE01;">
+    </span>
+    <span class="Legend-label">
+      : Meeting
+    </span>
+    <span class="Legend-colorBox" style="background-color: #880DFB;">
+    </span>
+    <span class="Legend-label">
+      : Break
+    </span>
+    <span class="Legend-colorBox ml-5" style="background-color: #FB7312;">
+    </span>
+    <span class="Legend-label">
+      : Other
+    </span>
+  </li>
+</ul>
+  
+  <!--
+  <div>
+
+    <figure id="Legend">
+      
+      <h1 class="ml-6">Legend</h1>
+      
+      <div class="container">
+        <div class="box mt-2" style="float:left; padding:20px; background-color: #DF0101;"> = Class</div>
+        
+        
+        </div>
+      <div class="container">
+        <div class='box' style="background-color: #0EBA01;"></div>
+        <div class="mt-2 subtitle"> = Study</div>
+        </div>
+      
+    </figure>
+    
+          
+  
+  </div>
+  <div><legend>Personal Information</legend></div>
+  
+  
+  <<div class='box' style="background-color: #DF0101;"></div> = Class</div>
+  <br>
+  <div><div class='box' style="background-color: #0EBA01;"></div> = Study</div>
+  <br>
+  <div><div class='box' style="background-color: #019BBA;"></div> = Work</div>
+  <br>
+  <div><div class='box' style="background-color: #EECE01;"></div> = Meeting</div>
+  <br>
+  <div><div class='box' style="background-color: #880DFB;"></div>= Break</div>
+  <br>
+  <div><div class='box' style="background-color: #FB7312;"></div>= Other</div>
+  <br>
+  </div>
+
   <!--Schedule edditor button -->
   <div id="editBtn">
     <button class="
       js-modal-trigger 
       button is-primary is-outlined
       mt-5 mr-3" data-target="modal-builder">
-      <!--       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square"
-        viewBox="0 0 16 16">
-        <path
-          d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-        <path fill-rule="evenodd"
-          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> -->
       Edit your schedule
       </svg>
     </button>
@@ -152,7 +224,7 @@
 
       <footer class="modal-card-foot has-text-centered">
         <button class="button is-primary" id="save">Save changes</button>
-        <button class="button">Add another event</button>
+        
       </footer>
     </div>
 
@@ -169,8 +241,8 @@
 
 
       <div style="padding: 0px;" class="column has-text-right is-gapless is-narrow">
-        <p class="pr-5 dayHead">Time of Day</p>
-
+        <p class="pr-5">Time of Day</p>
+        <p class="pb-5 mb-1"</p>
         <div class="time">1 a.m.</div>
         <div class="time">2 a.m.</div>
         <div class="time">3 a.m.</div>
@@ -232,6 +304,7 @@
         <p class="dayHead">Monday</p>
         <!-- Monday time boxes -->
         <div id="monday-1" class="myBox"></div>
+        
         <div id="monday-2" class="myBox"></div>
         <div id="monday-3" class="myBox"></div>
         <div id="monday-4" class="myBox"></div>
@@ -411,8 +484,9 @@
     </div>
   </div>
 
-  <script src="sch.js"></script>
-  <script src="modal.js"></script>
+  <script src="./js/sch.js"></script>
+  <script src="./js/modal.js"></script>
+  <script src="./js/hoverE.js"></script>
 </body>
 
 </html>

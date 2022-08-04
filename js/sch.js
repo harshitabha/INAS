@@ -8,6 +8,9 @@ const eventName = document.querySelector("#eName");
 const eventDescription = document.querySelector("#eDesc");
 const eCat = document.querySelector("#cats")
 const days = document.querySelector("#dayBtn");
+
+const body = document.querySelector("#schedule");
+
 let daysObj = {
   sunday: false,
   monday: false,
@@ -38,8 +41,7 @@ dayBtns.forEach((btn) => {
   });
 });
 
-
-
+// adding an event to the schedule
 save.addEventListener("click", c => {
   // if any of the days have been selected for the event
   Object.keys(daysObj).forEach(day => {
@@ -50,7 +52,7 @@ save.addEventListener("click", c => {
       let end = endTime.value.split(":") // hr of end time
       if(end[0][0] == 0) end[0] = end[0].slice(1); // removing the extra 0 b4 the hr
       for (var t = start[0]; t <= end[0]; t++) {
-        document.querySelector(`#${day}-${t}`).classList.add(eCat.value); // changing the color on the schedule to rep the event
+        document.querySelector(`#${day}-${t}`).classList.add(eCat.value, "js-modal-trigger", eventName.value.split(" ").join("_")); // changing the color on the schedule to rep the event
       }
 
       //round the corners of the start and end box
@@ -60,6 +62,10 @@ save.addEventListener("click", c => {
       // add the event name to the box
       // for this line need to figure out how to convert from 24 hr time to 12 hr time
       document.querySelector(`#${day}-${start[0]}`).innerHTML = `${eventName.value}<br>${start.join(":")} - ${end.join(":")}`;
+
+      // adding a modal for the event that can been seen when hovered over
+      
     }
+    
   });
 });
