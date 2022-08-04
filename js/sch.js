@@ -1,4 +1,3 @@
-const catsDrop = document.querySelector("#cats");
 const dayBtns = document.querySelectorAll(".dayBtn");
 const save = document.querySelector("#save");
 
@@ -7,7 +6,6 @@ const stTime = document.querySelector("#stTime");
 const eventName = document.querySelector("#eName");
 const eventDescription = document.querySelector("#eDesc");
 const eCat = document.querySelector("#cats")
-const days = document.querySelector("#dayBtn");
 
 const body = document.querySelector("#schedule");
 
@@ -21,7 +19,7 @@ let daysObj = {
   saturday: false,
 };
 
-catsDrop.addEventListener("change", e => console.log(catsDrop.value));
+eCat.addEventListener("change", e => console.log(eCat.value));
 
 // changing the day button look on click
 dayBtns.forEach((btn) => {
@@ -48,11 +46,11 @@ save.addEventListener("click", c => {
     if (daysObj[day] == true) {
       console.log("in")
       let start = stTime.value.split(":") // hr of st time
-      if(start[0][0] == 0) start[0] = start[0].slice(1); // removing the extra 0 b4 the hr
+      if (start[0][0] == 0) start[0] = start[0].slice(1); // removing the extra 0 b4 the hr
       let end = endTime.value.split(":") // hr of end time
-      if(end[0][0] == 0) end[0] = end[0].slice(1); // removing the extra 0 b4 the hr
+      if (end[0][0] == 0) end[0] = end[0].slice(1); // removing the extra 0 b4 the hr
       for (var t = start[0]; t <= end[0]; t++) {
-        document.querySelector(`#${day}-${t}`).classList.add(eCat.value, "js-modal-trigger", eventName.value.split(" ").join("_")); // changing the color on the schedule to rep the event
+        document.querySelector(`#${day}-${t}`).classList.add(eCat.value, eventName.value.split(" ").join("_")); // changing the color on the schedule to rep the event
       }
 
       //round the corners of the start and end box
@@ -64,8 +62,30 @@ save.addEventListener("click", c => {
       document.querySelector(`#${day}-${start[0]}`).innerHTML = `${eventName.value}<br>${start.join(":")} - ${end.join(":")}`;
 
       // adding a modal for the event that can been seen when hovered over
-      
+
     }
-    
+
+  });
+
+  //clear out the schedule builder
+  eCat.value = "default";
+  eventName.value = "";
+  eventDescription.value = "";
+  stTime.value = "";
+  endTime.value = "";
+  daysObj = {
+    sunday: false,
+    monday: false,
+    tuesday: false,
+    wednesday: false,
+    thursday: false,
+    friday: false,
+    saturday: false,
+  };
+  dayBtns.forEach((btn) => {
+    btn.classList.add("is-outlined");
+    btn.classList.remove("is-active");
+    // console.log(btn);
   });
 });
+
