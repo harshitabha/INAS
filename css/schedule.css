@@ -20,6 +20,11 @@
   
   text-align: center;
 }
+.stBox{
+  /* need to have someone check why the cornner is being cut off*/
+  border-radius: 10% 10% 0 0; 
+}
+.edBox{border-radius: 0 0 10% 10%;}
 
 .dayHead {
   padding-bottom: 0.5rem;
@@ -60,12 +65,14 @@
 
 /* Box styles */
 .myBox {
-border: none;
-padding: 0px;
-font: 20px/20px sans-serif;
-height: 72px;
-overflow: auto;
-text-align: left;
+  border: none;
+  padding: 0.75rem;
+  color: black;
+  margin-right: 1rem;
+  font: 20px/20px sans-serif;
+  height: 72px;
+  overflow: auto;
+  text-align: left;
 }
 
 ::-webkit-scrollbar {

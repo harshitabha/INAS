@@ -50,11 +50,16 @@ save.addEventListener("click", c => {
       let end = endTime.value.split(":") // hr of end time
       if(end[0][0] == 0) end[0] = end[0].slice(1); // removing the extra 0 b4 the hr
       for (var t = start[0]; t <= end[0]; t++) {
-        // console.log(`${t}`);
-        // console.log(`#${day}-${t}`);
         document.querySelector(`#${day}-${t}`).classList.add(eCat.value); // changing the color on the schedule to rep the event
-        
       }
+
+      //round the corners of the start and end box
+      document.querySelector(`#${day}-${start[0]}`).classList.add("stBox");
+      document.querySelector(`#${day}-${end[0]}`).classList.add("edBox");
+
+      // add the event name to the box
+      // for this line need to figure out how to convert from 24 hr time to 12 hr time
+      document.querySelector(`#${day}-${start[0]}`).innerHTML = `${eventName.value}<br>${start.join(":")} - ${end.join(":")}`;
     }
   });
 });
