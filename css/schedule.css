@@ -8,13 +8,24 @@
 /*   align-items: center; */
 }
 .time {
-  margin-bottom: 3rem;
-  padding-top:0.5rem;
+  /* margin-bottom: 3rem; */
+  padding-top: 1.5rem;
+  padding-bottom:1.5rem;
   margin-right: 0.8rem;
   padding-right: 0.5rem;
   
+  border-right: solid;
+  border-bottom: solid;
+  border-width: 2px;
   
   text-align: center;
+}
+
+.dayHead {
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  
+  border-width: 2px;
 }
 
 #days {
