@@ -9,13 +9,13 @@ const eventDescription = document.querySelector("#eDesc");
 const eCat = document.querySelector("#cats")
 const days = document.querySelector("#dayBtn");
 let daysObj = {
+  sunday: false,
   monday: false,
   tuesday: false,
   wednesday: false,
   thursday: false,
   friday: false,
   saturday: false,
-  sunday: false,
 };
 
 catsDrop.addEventListener("change", e => console.log(catsDrop.value));
@@ -44,11 +44,14 @@ save.addEventListener("click", c => {
   // if any of the days have been selected for the event
   Object.keys(daysObj).forEach(day => {
     if (daysObj[day] == true) {
+      console.log("in")
       let start = stTime.value.split(":") // hr of st time
+      if(start[0][0] == 0) start[0] = start[0].splice(1);
       let end = endTime.value.split(":") // hr of end time
       for (var t = start[0]; t <= end[0]; t++) {
-        // console.log(`#${day}-${t}`);
-        document.querySelector(`#${day}-${t}`).classList.add(eCat.value);
+        console.log(`${t}`);
+        console.log(`#${day}-${t}`);
+        // document.querySelector(`#${day}-${t}`).classList.add(eCat.value);
         
       }
     }
