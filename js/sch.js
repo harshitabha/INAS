@@ -7,7 +7,7 @@ const eventName = document.querySelector("#eName");
 const eventDescription = document.querySelector("#eDesc");
 const eCat = document.querySelector("#cats")
 
-const body = document.querySelector("#schedule");
+let events = [];
 
 let daysObj = {
   sunday: false,
@@ -44,25 +44,41 @@ save.addEventListener("click", c => {
   // if any of the days have been selected for the event
   Object.keys(daysObj).forEach(day => {
     if (daysObj[day] == true) {
-      console.log("in")
       let start = stTime.value.split(":") // hr of st time
       if (start[0][0] == 0) start[0] = start[0].slice(1); // removing the extra 0 b4 the hr
       let end = endTime.value.split(":") // hr of end time
       if (end[0][0] == 0) end[0] = end[0].slice(1); // removing the extra 0 b4 the hr
+      
       for (var t = start[0]; t <= end[0]; t++) {
-        document.querySelector(`#${day}-${t}`).classList.add(eCat.value, eventName.value.split(" ").join("_")); // changing the color on the schedule to rep the event
+        console.log("class assigned")
+        // document.querySelector(`#${day}-${t}`).classList.add(eCat.value); // changing the color on the schedule to rep the event
       }
 
+      // the staring div of the event
+      let topDiv = document.querySelector(`#${day}-${start[0]}`);
       //round the corners of the start and end box
-      document.querySelector(`#${day}-${start[0]}`).classList.add("stBox");
+      topDiv.classList.add("stBox");
       document.querySelector(`#${day}-${end[0]}`).classList.add("edBox");
 
       // add the event name to the box
       // for this line need to figure out how to convert from 24 hr time to 12 hr time
-      document.querySelector(`#${day}-${start[0]}`).innerHTML = `${eventName.value}<br>${start.join(":")} - ${end.join(":")}`;
+      // if after 1 pm
+      if (parseInt(start[0]) > 12) {
+        start[0] = (parseInt(start[0]) - 12).toString(); // changing to 12 hr time
+        start[1] += " p.m.";
+      }
+      else start[1] += " a.m.";
+      if (parseInt(end[0]) > 12) {
+        end[0] = (parseInt(end[0]) - 12).toString(); // changing to 12 hr time
+        end[1] += " p.m.";
+      }
+      else end[1] += " a.m.";
 
-      // adding a modal for the event that can been seen when hovered over
 
+      topDiv.innerHTML = `${eventName.value}<br>${start.join(":")} - ${end.join(":")}`;
+
+      // adding a popup for the event that can been seen when hovered over
+      topDiv.innerHTML += `<span id="${day[0]}_${eventName.value.split(" ").join("-")}" class="popuptext"> Event description: ${eventDescription.value}</span>`
     }
 
   });
@@ -87,5 +103,15 @@ save.addEventListener("click", c => {
     btn.classList.remove("is-active");
     // console.log(btn);
   });
+  
+  // reselect the events on the schedule each time the save button is clicked
+  events = document.querySelectorAll(".class, .study, .work, .meeting, .break, .other");
 });
 
+// having the description pop up
+events.forEach(event => {
+  event.addEventListener("mouseover", h => {
+    let stID = event.id.split("-")[1]; // get the number part of the id
+    console.log(stID);
+  });
+});

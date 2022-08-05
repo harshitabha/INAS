@@ -1,21 +1,9 @@
-@use postcss-custom-media;
-@use postcss-nested;
-
-
-
 .legend {
   display: flex;
-  height: 10px;
-  width: 10px;
-}
-
-.box {
-  float: left;
-  height: 1rem;
-  width: 1rem;
-  margin-bottom: 15px;
-  border: 1px solid black;
-  clear: both;
+  height: 50px;
+  width: 500px;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #builder {
@@ -63,12 +51,12 @@
   justify-content: flex-end;
 /*   float: right; */
 }
-.class { background-color: #DF0101;}
-.study {background-color: #0EBA01;}
-.work {background-color: #019BBA;}
-.meeting {background-color: #EECE01;}
-.break {background-color: #880DFB;}
-.other {background-color: #FB7312;}
+.class { background-color: #DF0101; color: black;}
+.study {background-color: #0EBA01; color: black;}
+.work {background-color: #019BBA; color: black;}
+.meeting {background-color: #EECE01; color: black;}
+.break {background-color: #880DFB; color: black;}
+.other {background-color: #FB7312; color: black;}
 
 
 
@@ -115,10 +103,51 @@ box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 background: #00d1b2;
 }
 
-.vertical {
-  border-left: 2px solid black;
-  height: 1912px;
-  position:absolute;
-  right: 1808px;
-  top: 213px;   
+/* Popup for the event description */
+
+/* The actual popup */
+.popuptext {
+  visibility: hidden;
+  width:10rem;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
 }
+
+/* Popup arrow */
+.popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+/*.popup:hover > .popuptext {
+  visibility: visible;
+  -webkit-animation: fadeIn .5s ;
+  animation: fadeIn .5s ;
+  
+}*/
+
+/* Add animation (fade in the popup) */
+/*@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}*/
