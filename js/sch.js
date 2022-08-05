@@ -57,7 +57,7 @@ save.addEventListener("click", c => {
       let topDiv = document.querySelector(`#${day}-${start[0]}`);
       //round the corners of the start and end box
       topDiv.classList.add("stBox");
-      document.querySelector(`#${day}-${end[0]}`).classList.add("edBox");
+      document.querySelector(`#${day}-${end[0]}`).classList.add("edBox"); 
 
       // add the event name to the box
       // for this line need to figure out how to convert from 24 hr time to 12 hr time
@@ -77,7 +77,7 @@ save.addEventListener("click", c => {
       topDiv.innerHTML = `${eventName.value}<br>${start.join(":")} - ${end.join(":")}`;
 
       // adding a popup for the event that can been seen when hovered over
-      topDiv.innerHTML += `<div id="${day[0]}_${eventName.value.split(" ").join("-")}" class="popuptext"> Event description: ${eventDescription.value}</div>`;
+      if(eventDescription.value != "") topDiv.innerHTML += `<div id="${day[0]}_${eventName.value.split(" ").join("-")}" class="popuptext"> Event description: ${eventDescription.value}</div>`;
     }
 
   });
