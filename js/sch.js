@@ -50,8 +50,9 @@ save.addEventListener("click", c => {
       if (end[0][0] == 0) end[0] = end[0].slice(1); // removing the extra 0 b4 the hr
       
       for (var t = start[0]; t <= end[0]; t++) {
-        console.log("class assigned")
-        // document.querySelector(`#${day}-${t}`).classList.add(eCat.value); // changing the color on the schedule to rep the event
+        // console.log(`class assigned: ${eCat.value}`)
+        document.querySelector(`#${day}-${t}`).classList.add(eCat.value); // changing the color on the schedule to rep the event
+        console.log(document.querySelector(`#${day}-${t}`).classList)
       }
 
       // the staring div of the event
