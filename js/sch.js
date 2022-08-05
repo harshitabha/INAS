@@ -50,9 +50,7 @@ save.addEventListener("click", c => {
       if (end[0][0] == 0) end[0] = end[0].slice(1); // removing the extra 0 b4 the hr
       
       for (var t = start[0]; t <= end[0]; t++) {
-        // console.log(`class assigned: ${eCat.value}`)
         document.querySelector(`#${day}-${t}`).classList.add(eCat.value); // changing the color on the schedule to rep the event
-        console.log(document.querySelector(`#${day}-${t}`).classList)
       }
 
       // the staring div of the event
@@ -79,7 +77,7 @@ save.addEventListener("click", c => {
       topDiv.innerHTML = `${eventName.value}<br>${start.join(":")} - ${end.join(":")}`;
 
       // adding a popup for the event that can been seen when hovered over
-      topDiv.innerHTML += `<span id="${day[0]}_${eventName.value.split(" ").join("-")}" class="popuptext"> Event description: ${eventDescription.value}</span>`
+      topDiv.innerHTML += `<div id="${day[0]}_${eventName.value.split(" ").join("-")}" class="popuptext"> Event description: ${eventDescription.value}</div>`;
     }
 
   });
@@ -106,13 +104,27 @@ save.addEventListener("click", c => {
   });
   
   // reselect the events on the schedule each time the save button is clicked
-  events = document.querySelectorAll(".class, .study, .work, .meeting, .break, .other");
-});
+  events = document.querySelectorAll(".myBox.class, .myBox.study, .myBox.work, .myBox.meeting, .myBox.break, .myBox.other");
+  console.log(events);
+  let popupID;
+  // having the description pop up
+  events.forEach(e => {
+    e.addEventListener("mouseover", h => {
+      let day = e.id.split("-")[0];
+      let id = e.id.split("-")[1]; // get the number part of the id
+      // go to the starting div of the event (where the div isn't empty)
+      while(document.querySelector(`#${day}-${id}`).innerHTML == "") id = parseInt(id) - 1;
+      let name = document.querySelector(`#${day}-${id}`).innerHTML.split(`<br>`)[0];
+      name = name.split(" ").join("-");
+      popupID = `#${day[0]}_${name}`;
 
-// having the description pop up
-events.forEach(event => {
-  event.addEventListener("mouseover", h => {
-    let stID = event.id.split("-")[1]; // get the number part of the id
-    console.log(stID);
+      // unhide the description of the event
+      document.querySelector(popupID).style.visibility = "visible";
+    });
+
+    e.addEventListener("mouseout", l => {
+      // hide the description of the event
+      document.querySelector(popupID).style.visibility = "hidden";
+    });
   });
 });
